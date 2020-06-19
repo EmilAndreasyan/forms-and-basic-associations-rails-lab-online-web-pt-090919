@@ -3,6 +3,13 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label @song.artist_name %>
+  <%= f.text_field @song.artist_name %>
+  <select class="genre">
+    <%= f.select :genre, Genre.all.collect {|g| [g.name, g.id]} %>
+  </select>
+  <%= f.label @song.notes %>
+  <%= f.text_field @song.notes %>
   <br />
 
   <%= f.submit %>
